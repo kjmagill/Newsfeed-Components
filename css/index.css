@@ -1,0 +1,168 @@
+/* This line is importing the font 'Roboto'. DO NOT change line 2*/
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Roboto Italic'), local('Roboto-Italic'), url(https://fonts.gstatic.com/s/roboto/v20/KFOkCnqEu92Fr1Mu51xIIzc.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc9.ttf) format('truetype');
+}
+@import url(https://fonts.googleapis.com/css?family=Righteous);
+/* Below this line is where you will start your work */
+/* It is important to note, you will not be writing any CSS in this file*/
+.header {
+  width: 100%;
+  height: 75px;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+.header h1 {
+  margin: 0;
+  font-size: 48px;
+}
+svg {
+  display: block;
+  font: 17em 'Montserrat';
+  /* text-shadow: 2px 2px #ff0000; */
+  width: 650px;
+  height: 90px;
+  margin: 0 auto;
+}
+.text-copy {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 6% 29%;
+  stroke-width: 10px;
+  stroke-dashoffset: 0%;
+  animation: stroke-offset 5.5s infinite linear;
+}
+.text-copy:nth-child(1){
+stroke: #ff0000;
+animation-delay: -1;
+}
+.text-copy:nth-child(2){
+stroke: #c70e0e;
+animation-delay: -2s;
+}
+.text-copy:nth-child(3){
+stroke: #BD0034;
+animation-delay: -3s;
+}
+.text-copy:nth-child(4){
+stroke: red;
+animation-delay: -4s;
+}
+.text-copy:nth-child(5){
+stroke: #FDB731;
+animation-delay: -5s;
+}
+@keyframes stroke-offset{
+100% {stroke-dashoffset: -35%;}
+}
+.articles {
+  margin-top: 95px;
+}
+.article {
+  margin: 20px 10%;
+  padding: 0 20px 25px;
+  border: 1px solid #ff0000;
+  border-radius: 10px;
+  background-color: white;
+  position: relative;
+  height: 50px;
+  overflow: hidden;
+  box-shadow: 2px 2px 2px #FDB731;
+}
+.article h2 {
+  font-size: 28px;
+  padding: 0;
+  margin: 15px 0 0;
+}
+.article .date {
+  margin: 0;
+  font-size: 14px;
+}
+.article .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.article .expandButton {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 3px;
+  left: 50%;
+  font-size: 12px;
+  color: #BD0034;
+  cursor: pointer;
+  transform: translate(-50%);
+  background-color: white;
+}
+.article-open {
+  height: auto;
+}
+.menu-button {
+  position: absolute;
+  left: 20px;
+  cursor: pointer;
+}
+.menu {
+  display: none;
+  position: fixed;
+  top: 75px;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  /* This give the height 100% of the screen or, '100% of View Height' */
+  /* background-color: black; */
+  border: 1px solid black;
+  border-left: none;
+  border-bottom: none;
+  z-index: 2;
+  background: linear-gradient(-40deg, #ff0000, #FDB731, #BD0034, #FDB731);
+  background-size: 400% 400%;
+  animation: gradientBG 6s ease infinite;
+}
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 40%;
+    }
+    50% {
+        background-position: 90% 40%;
+    }
+    100% {
+        background-position: 0% 60%;
+    }
+}
+.menu ul li {
+  list-style-type: none;
+  font-size: 32px;
+  padding: 30px 0;
+  text-align: center;
+}
+.menu--open {
+  display: block;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto';
+  background-color: #fffef7;
+}
