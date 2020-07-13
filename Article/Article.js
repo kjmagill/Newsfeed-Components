@@ -85,6 +85,24 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Learn How to Use Gangsta Lorem Ipsum',
+    date: 'Dec 4th, 2019',
+    firstParagraph: `http://lorizzle.nl/ Lorizzle ipsizzle for sure mammasay mammasa mamma oo sa amizzle, go to hizzle adipiscing that's  
+          the shizzle velizzle, doggy volutpizzle, suscipizzle quis, gravida fo shizzle, cool. Pellentesque dope tortizzle. Sed erizzle. 
+          Go to hizzle at dolor dapibus ghetto tempizzle shiznit. Maurizzle pellentesque nibh we gonna chung turpizzle. Lorizzle ipsizzle 
+          for sure mammasay mammasa mamma oo sa amizzle, go to hizzle adipiscing that's the shizzle. Nullam i'm in the shizzle velizzle.`,
+
+    secondParagraph: `http://lorizzle.nl/ Lorizzle ipsizzle for sure mammasay mammasa mamma oo sa amizzle, go to hizzle adipiscing that's  
+          the shizzle velizzle, doggy volutpizzle, suscipizzle quis, gravida fo shizzle, cool. Pellentesque dope tortizzle. Sed erizzle. 
+          Go to hizzle at dolor dapibus ghetto tempizzle shiznit. Maurizzle pellentesque nibh we gonna chung turpizzle. Lorizzle ipsizzle 
+          for sure mammasay mammasa mamma oo sa amizzle, go to hizzle adipiscing that's the shizzle. Nullam i'm in the shizzle velizzle.`,
+
+    thirdParagraph: `http://lorizzle.nl/ Lorizzle ipsizzle for sure mammasay mammasa mamma oo sa amizzle, go to hizzle adipiscing that's  
+          the shizzle velizzle, doggy volutpizzle, suscipizzle quis, gravida fo shizzle, cool. Pellentesque dope tortizzle. Sed erizzle. 
+          Go to hizzle at dolor dapibus ghetto tempizzle shiznit. Maurizzle pellentesque nibh we gonna chung turpizzle. Lorizzle ipsizzle 
+          for sure mammasay mammasa mamma oo sa amizzle, go to hizzle adipiscing that's the shizzle. Nullam i'm in the shizzle velizzle.`
   }
 ];
 
@@ -102,13 +120,51 @@ const data = [
   Hint: You will need to use createElement more than once here!
 
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
-
-  Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
-
-  Step 3: return the entire component.
-
-  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
-
-  Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
-
 */
+function createArticle(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+  const article = document.createElement('div');
+  const artTitle = document.createElement('h2');
+  const artDate = document.createElement('p');
+  const firstP = document.createElement('p');
+  const secondP = document.createElement('p');
+  const thirdP = document.createElement('p');
+  const button = document.createElement('span');
+
+  article.classList.add('article');
+  artDate.classList.add('date');
+  button.classList.add('expandButton');
+
+  article.appendChild(artTitle);
+  article.appendChild(artDate);
+  article.appendChild(firstP);
+  article.appendChild(secondP);
+  article.appendChild(thirdP);
+  article.appendChild(button);
+
+  artTitle.textContent = title;
+  artDate.textContent = date;
+  firstP.textContent = firstParagraph;
+  secondP.textContent = secondParagraph;
+  thirdP.textContent = thirdParagraph;
+  button.textContent = '[Expand]';
+
+// Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
+  button.addEventListener('click', event => {
+    article.classList.toggle('article-open');
+  })
+
+// Step 3: return the entire component.
+  return article
+}
+
+
+// Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+const articles = document.querySelector('.articles');
+
+data.forEach(d => {
+  articles.appendChild(createArticle(d.title, d.date, d.firstParagraph, d.secondParagraph, d.thirdParagraph))
+})
+
+// Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
+  // DONE. See array above.
+
